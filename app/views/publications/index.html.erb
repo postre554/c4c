@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Publications</h1>
+
+<div id="publications">
+  <% @publications.each do |publication| %>
+    <%= render publication %>
+    <p class="my-4">
+      <%= link_to "Show this publication", publication %>
+
+
+      
+      <div class="btn-group" role="group" aria-label="Reactions">
+
+      <%= button_to like_publication_path(publication), method: :post, class: "btn btn-primary mx-3" do %>
+        <i class="fa fa-heart"></i><%= publication.reactions.where(tipo: 1).count %>
+      <% end %>
+
+      </div>
+
+
+      <div class="btn-group" role="group" aria-label="Reactions">
+      <%= button_to dislike_publication_path(publication), method: :post, class: "btn btn-danger" do %>
+        <i class="fa-solid fa-heart-crack"></i><%= publication.reactions.where(tipo: 0).count %>
+        <% end %>
+      </div>
+
+      </p>
+  <% end %>
+</div>
+
+<%= link_to "New publication", new_publication_path %>
