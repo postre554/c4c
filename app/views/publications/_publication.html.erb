@@ -1,7 +1,7 @@
 <div id="<%= dom_id publication %>">
-  <p>
+  <p class="fs-5">
     <strong>Titulo:</strong>
-    <%= publication.titulo %>
+    <strong><%= publication.titulo %></strong>
   </p>
 
   <p>
@@ -20,8 +20,13 @@
   </p>
 
   <p>
+
     <strong>User:</strong>
-    <%= publication.user_id %>
+        <% if publication.user_id.nil? %>
+          <%= "Anónimo" %>
+        <% else %>
+         <strong class="text-success"><%= publication.user.email %></strong>
+         <% end %>
   </p>
 
 </div>

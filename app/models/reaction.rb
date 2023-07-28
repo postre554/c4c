@@ -7,7 +7,7 @@ class Reaction < ApplicationRecord
     me_gusta: 1
   }
 
-  validate :user_reaction_limit, on: :create
+  
 
 
   

@@ -1,14 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
 
-<h1>Comments</h1>
+  <p style="color: green"><%= notice %></p>
 
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <%= render comment %>
-    <p>
-      <%= link_to "Show this comment", comment %>
-    </p>
-  <% end %>
+  <h1>Comments</h1>
+
+  <div id="comments">
+    <% @comments.each do |comment| %>
+      <%= render comment %>
+      <p>
+        <%= link_to "Detalle de comentario", comment , class:"btn btn-primary"  %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New comment", new_publication_comment_path(@publication), class:"btn btn-primary" %>
+
+
 </div>
-
-<%= link_to "New comment", new_publication_comment_path(@publication) %>
